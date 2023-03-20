@@ -14,7 +14,7 @@ set_countries.update({'arg', 'ecu', 'per'})
 print(set_countries)
 
 #remove
-set_countries.remove('col')
+set_countries.remove('fra')
 print(set_countries)
 
 #discard

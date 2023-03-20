@@ -1,26 +1,17 @@
 import utils
+import read_csv
+import charts
 
-populations = [
-    {
-      'country': 'Colombia',
-      'population': 50
-    },
-    {
-      'country': 'Brazil',
-      'population': 120
-    },
-    {
-      'country': 'Mexico',
-      'population': 90
-    }
-  ]
 
 def run():
-  keys, values = utils.get_population()
-  
+
+  data = read_csv.read_csv('./app/data.csv')
   country = input('Ingrese el país: ')
-  result = utils.population_by_country(populations, country)
-  print(result)
+  result = utils.population_by_country(data, country)
+  if len(result) > 0:
+    country = result[0]
+    keys, values = utils.get_population(country)
+    charts.generate_bar_chart(keys, values)
 
 if __name__ == '__main__':
   run()
